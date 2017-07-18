@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+uniform mat4 mProjection;
+uniform mat4 mView;
+uniform mat4 mModel;
+void main(){
+    gl_Position = mProjection * mView * mModel * vPosition;
+}
+</script>
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+void main() {
+    gl_FragColor = vec4(1, 1, 1, 1);
+}
+</script>
+<script type="text/javascript" src="webgl-utils.js"></script>
+<script type="text/javascript" src="initShaders.js"></script>
+<script type="text/javascript" src="MV.js"></script>
+<script type="text/javascript" src="cube.js"></script>
+<script type="text/javascript" src="sphere.js"></script>
+<script type="text/javascript" src="triangle.js"></script>
+</head>
+<body>
+    <title>Triangle</title>
+    <canvas id="gl-canvas" width="512" height="512">
+        Oops... your browser doesn't support the HTML5 canvas element"
+    </canvas>
+    
+    <p>tx: <input id = "tx" type = "range" name = "tx" min = "-1.0" max = "1.0" value = "0.0" step = "0.1"></input>
+    ty: <input id = "ty" type = "range" name = "ty" min = "-1.0" max = "1.0" value = "0.0" step = "0.1"></input>
+    tz: <input id = "tz" type = "range" name = "tz" min = "-1.0" max = "1.0" value = "0.0" step = "0.1"></input>
+    <button id ="nc">Novo Cubo</button></p>
+    <p>rx: <input id = "rx" type = "range" name = "rx" min = "-180.0" max = "180.0" value = "0.0" step = "20.0"></input>
+    ry: <input id = "ry" type = "range" name = "ry" min = "-180.0" max = "180.0" value = "0.0" step = "20.0"></input>
+    rz: <input id = "rz" type = "range" name = "rz" min = "-180.0" max = "180.0" value = "0.0" step = "20.0"></input>
+    <button id ="ns">Nova Esfera</button></p>
+    <p>sx: <input id = "sx" type = "range" name = "sx" min = "0.05" max = "2.0" value = "1.0" step = "0.05"></input>
+    sy: <input id = "sy" type = "range" name = "sy" min = "0.05" max = "2.0" value = "1.0" step = "0.05"></input>
+    sz: <input id = "sz" type = "range" name = "sz" min = "0.05" max = "2.0" value = "1.0" step = "0.05"></input></p>
+    
+</body>
+</html>
